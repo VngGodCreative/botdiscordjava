@@ -37,7 +37,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 
 1. Clone repository này:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/VngGodCreative/botdiscordjava.git
    ```
 
 2. Cài đặt các gói cần thiết:
@@ -68,7 +68,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 
 ## Cấu trúc thư mục
 
-```plaintext
+```project
 .
 ├── commands
 │   ├── prefix-commands
