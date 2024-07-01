@@ -1,6 +1,6 @@
 # Javabot Discord - Code by Creative
 
-## BOT NÀY ĐƯỢC PHÁT TRIỂN DỰA THEO LOGIC CỦA CREATIVE VÀ CẢI THIỆN UPDATE BỞI GPT, VUI LÒNG KHÔNG ĐIỀU CHỈNH BẤT CỨ THỨ GÌ TRONG TỆP config.json ngoài token và id để tránh bị lỗi
+## BOT NÀY ĐƯỢC PHÁT TRIỂN DỰA THEO LOGIC CỦA CREATIVE VÀ CẢI THIỆN UPDATE BỞI GPT, VUI LÒNG KHÔNG ĐIỀU CHỈNH BẤT CỨ THỨ GÌ TRONG TỆP config.js ngoài token và id để tránh bị lỗi
 
 Bot Discord này được thiết kế để quản lý và tương tác với cộng đồng trên máy chủ của bạn. Bot hỗ trợ cả lệnh prefix và lệnh slash, giúp việc sử dụng dễ dàng và linh hoạt hơn.
 
