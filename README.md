@@ -4,6 +4,10 @@
 
 Bot Discord này được thiết kế để quản lý và tương tác với cộng đồng trên máy chủ của bạn. Bot hỗ trợ cả lệnh prefix và lệnh slash, giúp việc sử dụng dễ dàng và linh hoạt hơn.
 
+## Liên hệ
+- **Nếu phát sinh lỗi gì vui lòng liên hệ hoặc tham gia nhóm để báo cáo lỗi**: [Creative](https://discord.gg/4Sbc2hVvNT)
+- **Phiên bản bot hiện tại đang chạy nền tảng NodeJS**: v1.0
+
 ## Chức năng
 
 ### Lệnh Prefix
@@ -163,8 +167,3 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 ## Ghi chú
 - Đảm bảo rằng bot có quyền quản trị hoặc quyền cao nhất trên máy chủ để thực thi các lệnh.
 - Thay thế `YOUR_BOT_TOKEN` và các giá trị khác trong `config.js` bằng thông tin của bạn.
-
-## Liên hệ
-
-- **Tác giả**: [Creative](https://discord.gg/4Sbc2hVvNT)
-- **Phiên bản**: v1.0
