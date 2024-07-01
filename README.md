@@ -107,7 +107,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
    node index.js
    ```
 
-## Cấu trúc thư mục
+## Cấu trúc thư mục hiện tại của dự án
 
 ```project
 .
@@ -159,7 +159,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 ```
 
 ## Hướng dẫn sử dụng
-- **Điền thông tin cần thiết** (như URL repository, token bot, v.v.).
+- **Hãy chắc chắn bạn điền đầy đủ thông tin cần thiết** (như URL repository, token bot, v.v.).
 - **Lệnh Prefix**: Sử dụng bằng cách gõ `$<lệnh>` trong kênh chat.
 - **Lệnh Slash**: Sử dụng bằng cách gõ `/` và chọn lệnh từ danh sách gợi ý.
 
