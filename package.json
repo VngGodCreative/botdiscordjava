@@ -1,0 +1,21 @@
+{
+  "name": "bot-java---beta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@discordjs/voice": "^0.17.0",
+    "cls": "^0.1.5",
+    "discord.js": "^14.15.3",
+    "npm": "^10.8.1",
+    "start": "^5.1.0",
+    "systeminformation": "^5.22.11"
+  }
+}
