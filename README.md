@@ -98,7 +98,8 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
         userprefix: '[USER]'
     }
   };
-   ```
+```
+```
 
 4. Khởi chạy bot:
    ```bash
