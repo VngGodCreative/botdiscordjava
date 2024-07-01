@@ -1,6 +1,6 @@
 # Bot Discord
 
-## BOT NÀY ĐƯỢC PHÁT TRIỂN DỰA THEO LOGIC CỦA CREATIVE VÀ CẢI THIỆN UPDATE BỞI GPT
+## BOT NÀY ĐƯỢC PHÁT TRIỂN DỰA THEO LOGIC CỦA CREATIVE VÀ CẢI THIỆN UPDATE BỞI GPT, VUI LÒNG KHÔNG ĐIỀU CHỈNH BẤT CỨ THỨ GÌ TRONG TỆP config.json ngoài token và id để tránh bị lỗi
 
 Bot Discord này được thiết kế để quản lý và tương tác với cộng đồng trên máy chủ của bạn. Bot hỗ trợ cả lệnh prefix và lệnh slash, giúp việc sử dụng dễ dàng và linh hoạt hơn.
 
@@ -57,8 +57,45 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
        footer: {
            text: 'Code by Creative',
            icon_url: null // Để tự động lấy avatar của bot
-       }
-   };
+       },
+   categories: {
+        admin: '🔧 Lệnh Admin',
+        owner: '👑 Lệnh Owner',
+        general: '👥 Lệnh cho mọi người',
+        music: '🎵 Lệnh Nhạc',
+        setup: '⚙️ Lệnh Setup',
+        info: 'ℹ️ Lệnh kiểm tra thông tin'
+    },
+    ready: {
+        colors: {
+            info: '\x1b[36m',  // Cyan for [INFO]
+            warnings: '\x1b[33m',  // Yellow for [WARNING]
+            ready: '\x1b[32m',  // Green for [READY]
+            user: '\x1b[34m',
+            start: '\x1b[32m',
+            commands: '\x1b[33m',  // Green
+            prefixCommands: '\x1b[33m',  // Yellow
+            events: '\x1b[33m',  // Blue
+            os: '\x1b[35m',  // Magenta
+            cpu: '\x1b[35m',  // Cyan
+            ram: '\x1b[35m'  // Red
+        },
+        emojis: {
+            start: '🚀',
+            commands: '📜',
+            prefixCommands: '🔤',
+            events: '🔔',
+            os: '💻',
+            cpu: '🖥️',
+            ram: '💾',
+            warnings: '⚠️',
+            ready: '✅'
+        },
+        infoPrefix: '[INFO]',
+        warningsprefix: '[WARN]',
+        userprefix: '[USER]'
+    }
+  };
    ```
 
 4. Khởi chạy bot:
@@ -118,7 +155,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 ```
 
 ## Hướng dẫn sử dụng
-
+- **Điền thông tin cần thiết** (như URL repository, token bot, v.v.).
 - **Lệnh Prefix**: Sử dụng bằng cách gõ `$<lệnh>` trong kênh chat.
 - **Lệnh Slash**: Sử dụng bằng cách gõ `/` và chọn lệnh từ danh sách gợi ý.
 
@@ -131,11 +168,3 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 
 - **Tác giả**: Creative
 - **Phiên bản**: v1.0
-
-### Hướng dẫn:
-
-1. **Tạo tệp `README.md`** trong thư mục gốc của dự án.
-2. **Sao chép nội dung trên** vào tệp.
-3. **Điền thông tin cần thiết** (như URL repository, token bot, v.v.).
-
-Nếu cần thêm thông tin hoặc chỉnh sửa, hãy cho mình biết nhé!
