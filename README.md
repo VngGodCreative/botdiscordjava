@@ -18,6 +18,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 - **$afk**: 🚶‍♂️ Đặt trạng thái AFK.
 - **$update**: 🔄 Cập nhật lại các lệnh và sự kiện.
 - **$report_error**: 🐞 Báo cáo lỗi tới kênh quản trị.
+- Và nhiều lệnh nữa đang update dần dần ...
 
 ### Lệnh Slash
 
@@ -32,6 +33,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 - **/about**: ℹ️ Hiển thị thông tin về bot.
 - **/update**: 🔄 Cập nhật lại các lệnh và sự kiện.
 - **/report_error**: 🐞 Báo cáo lỗi tới kênh quản trị.
+- Và nhiều lệnh nữa đang update dần dần ...
 
 ## Cài đặt
 
