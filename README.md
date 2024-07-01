@@ -161,11 +161,10 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 - **Lệnh Slash**: Sử dụng bằng cách gõ `/` và chọn lệnh từ danh sách gợi ý.
 
 ## Ghi chú
-
-- Đảm bảo rằng bot có quyền quản trị cần thiết trên máy chủ để thực thi các lệnh.
+- Đảm bảo rằng bot có quyền quản trị hoặc quyền cao nhất trên máy chủ để thực thi các lệnh.
 - Thay thế `YOUR_BOT_TOKEN` và các giá trị khác trong `config.js` bằng thông tin của bạn.
 
 ## Liên hệ
 
-- **Tác giả**: Creative
+- **Tác giả**: (Creative)[(https://discord.gg/4Sbc2hVvNT)]
 - **Phiên bản**: v1.0
