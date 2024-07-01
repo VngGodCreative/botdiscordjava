@@ -1,6 +1,6 @@
 # Bot Discord
 
-## Mô tả
+## BOT NÀY ĐƯỢC PHÁT TRIỂN DỰA THEO LOGIC CỦA CREATIVE VÀ CẢI THIỆN UPDATE BỞI GPT
 
 Bot Discord này được thiết kế để quản lý và tương tác với cộng đồng trên máy chủ của bạn. Bot hỗ trợ cả lệnh prefix và lệnh slash, giúp việc sử dụng dễ dàng và linh hoạt hơn.
 
