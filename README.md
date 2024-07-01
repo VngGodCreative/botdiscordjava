@@ -166,5 +166,5 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 
 ## Liên hệ
 
-- **Tác giả**: (Creative)[https://discord.gg/4Sbc2hVvNT]
+- **Tác giả**: [Creative](https://discord.gg/4Sbc2hVvNT)
 - **Phiên bản**: v1.0
