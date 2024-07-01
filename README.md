@@ -8,8 +8,6 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 - **Nếu phát sinh lỗi gì vui lòng liên hệ hoặc tham gia nhóm để báo cáo lỗi**: [Creative](https://discord.gg/4Sbc2hVvNT)
 - **Phiên bản bot hiện tại đang chạy nền tảng NodeJS**: v1.0
 
-## Chức năng
-
 ### Lệnh Prefix
 
 - **$ping**: Kiểm tra độ trễ của bot.
@@ -103,6 +101,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
     }
    };
    ```
+   
 4. Khởi chạy bot:
    ```bash
    node index.js
