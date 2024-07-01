@@ -49,7 +49,7 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
 
 3. Cấu hình bot trong tệp `config.js`:
    ```javascript
-   module.exports = {
+      module.exports = {
        botToken: 'YOUR_BOT_TOKEN',
        spotifyClientId: 'YOUR_SPOTIFY_CLIENT_ID',
        spotifyClientSecret: 'YOUR_SPOTIFY_CLIENT_SECRET',
@@ -97,10 +97,8 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
         warningsprefix: '[WARN]',
         userprefix: '[USER]'
     }
-  };
-```
-```
-
+   };
+   ```
 4. Khởi chạy bot:
    ```bash
    node index.js
