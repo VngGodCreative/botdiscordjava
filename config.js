@@ -1,9 +1,9 @@
 module.exports = {
-    botToken: 'MTI1NjQ5NDQ5NjI1OTI0ODE4OA.G9u6a_.i5hBwueIyIxBXbKgu7S_M6GqNmeYiBzseT7oAw',
-    spotifyClientId: '162a5e39056545179d8339fbe03dfe53',
-    spotifyClientSecret: '38696722229a4f7cacf7473474ece1c9',
-    ownerId: '711115131064549498',
-    errorChannelId: '1250091457482723359',
+    botToken: 'Token_here',
+    spotifyClientId: 'Token_here',
+    spotifyClientSecret: 'Token_here',
+    ownerId: 'Your_Owner_ID',
+    errorChannelId: 'Your_Channel_ID',
     prefix: '$',
     verify: {
         warningsconfig: true,
