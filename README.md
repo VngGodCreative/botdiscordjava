@@ -57,9 +57,9 @@ Bot Discord này được thiết kế để quản lý và tương tác với c
        spotifyClientSecret: 'YOUR_SPOTIFY_CLIENT_SECRET',
        ownerId: 'YOUR_OWNER_ID',
        prefix: '$',
-       version: 'v1.0',
        footer: {
            text: 'Code by Creative',
+           version: 'v1.0',
            icon_url: null // Để tự động lấy avatar của bot
        },
    categories: {
