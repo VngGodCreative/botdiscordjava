@@ -13,11 +13,11 @@ module.exports = {
         const voiceChannel = interaction.member.voice.channel;
 
         if (!voiceChannel) {
-            return interaction.reply({ content: '⚠️ Bạn cần tham gia kênh voice trước!', ephemeral: true });
+            return interaction.reply({ content: '⚠️ Bạn cần tham gia kênh voice trước!', ephemeral: false });
         }
 
         if (interaction.guild.members.me.voice.channel && interaction.guild.members.me.voice.channel.id === voiceChannel.id) {
-            return interaction.reply({ content: '⚠️ Bot đã ở trong kênh voice này!', ephemeral: true });
+            return interaction.reply({ content: '⚠️ Bot đã ở trong kênh voice này!', ephemeral: false });
         }
 
         joinVoiceChannel({

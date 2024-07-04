@@ -49,7 +49,7 @@ module.exports = {
                 { name: '📅 Thời gian', value: formattedDate, inline: true },
                 { name: '📢 Lý do', value: reason, inline: false }
             )
-            .setFooter({ text: `${footer.text} - ${footer.version} | ${formattedDate}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
+            .setFooter({ text: `${footer.text} ${footer.version} | ${formattedDate}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
 
         await interaction.reply({ embeds: [embed], ephemeral: false });
     }

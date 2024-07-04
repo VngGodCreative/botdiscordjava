@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fs = require('fs');
 const path = require('path');
+const { EmbedBuilder } = require('discord.js');
 const { ownerId } = require('../../../config');
 
 module.exports = {
@@ -11,10 +12,18 @@ module.exports = {
 
     async execute(interaction) {
         if (interaction.user.id !== ownerId) {
-            return interaction.reply({ content: '❌ Bạn không có quyền sử dụng lệnh này.', ephemeral: true });
+            const noPermEmbed = new EmbedBuilder()
+                .setColor('#FF0000')
+                .setTitle('❌ Truy cập bị từ chối')
+                .setDescription('Bạn không có quyền sử dụng lệnh này.');
+
+            return interaction.reply({ embeds: [noPermEmbed], ephemeral: false });
         }
 
-        await interaction.reply('🔄 Đang tải lại các lệnh và sự kiện...');
+        const updatingEmbed = new EmbedBuilder()
+            .setColor('#FFFF00')
+            .setTitle('🔄 Đang cập nhật, đồng bộ các sự kiện, prefix và slash')
+        await interaction.reply({ embeds: [updatingEmbed], ephemeral: false });
 
         const { client } = interaction;
 
@@ -32,7 +41,10 @@ module.exports = {
         // Tải lại sự kiện
         loadEvents(client);
 
-        await interaction.followUp({ content: '✅ Đã tải lại các lệnh và sự kiện thành công!', ephemeral: false });
+        const successEmbed = new EmbedBuilder()
+            .setColor('#00FF00')
+            .setTitle('✅ Đã cập nhật thành công')
+        await interaction.followUp({ embeds: [successEmbed], ephemeral: false });
     },
 };
 

@@ -37,7 +37,7 @@ module.exports = {
                 .setColor(0x00FF00)
                 .setTitle('🟢 Trạng thái AFK đã được gỡ bỏ')
                 .setDescription(`Bạn đã quay trở lại và trạng thái AFK của bạn đã được gỡ bỏ.`)
-                .setFooter({ text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
+                .setFooter({ text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
             await interaction.reply({ embeds: [embed], ephemeral: true });
         }
 
@@ -55,7 +55,7 @@ module.exports = {
                             { name: '📅 Thời gian', value: `${new Date(afkData.time).toLocaleTimeString('vi-VN')} - ${new Date(afkData.time).toLocaleDateString('vi-VN')}`, inline: true },
                             { name: '📢 Lý do', value: afkData.reason, inline: false }
                         )
-                        .setFooter({ text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
+                        .setFooter({ text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
                     interaction.reply({ embeds: [embed], ephemeral: true });
                 }
             });

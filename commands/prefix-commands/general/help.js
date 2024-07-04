@@ -39,7 +39,7 @@ module.exports = {
                             { name: 'Các câu gọi khác', value: aliases }
                         ],
                         footer: {
-                            text: `${footer.text} - ${footer.version}`,
+                            text: `${footer.text} ${footer.version}`,
                             icon_url: message.client.user.displayAvatarURL()
                         },
                     }
@@ -74,7 +74,7 @@ module.exports = {
                         { name: categories.owner, value: ownerCommands, inline: false }
                     ],
                     footer: {
-                        text: `${footer.text} - ${footer.version}`,
+                        text: `${footer.text} ${footer.version}`,
                         icon_url: message.client.user.displayAvatarURL()
                     },
                 },

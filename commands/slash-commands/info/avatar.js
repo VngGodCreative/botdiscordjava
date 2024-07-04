@@ -26,7 +26,7 @@ module.exports = {
                 { name: 'WEBP', value: `[Link tải ảnh](${user.displayAvatarURL({ format: 'webp' })})`, inline: true }
             )
             .setFooter({
-                text: `${footer.text} - ${footer.version}`,
+                text: `${footer.text} ${footer.version}`,
                 iconURL: interaction.client.user.displayAvatarURL()
             });
 

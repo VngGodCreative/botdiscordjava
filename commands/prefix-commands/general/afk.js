@@ -41,7 +41,7 @@ module.exports = {
                 { name: '📅 Thời gian', value: formatDateTime(new Date()), inline: true },
                 { name: '📢 Lý do', value: reason, inline: false }
             )
-            .setFooter({ text: `${footer.text} - ${footer.version} | ${formatDateTime(new Date())}`, iconURL: footer.icon_url || message.client.user.displayAvatarURL() });
+            .setFooter({ text: `${footer.text} ${footer.version} | ${formatDateTime(new Date())}`, iconURL: footer.icon_url || message.client.user.displayAvatarURL() });
 
         message.reply({ embeds: [embed] });
     },

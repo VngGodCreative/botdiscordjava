@@ -6,7 +6,7 @@ const { footer } = require('../../../config');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('serverinfo')
+        .setName('server_info')
         .setDescription('📜 Hiển thị thông tin về server hiện tại hoặc server theo ID')
         .addStringOption(option =>
             option.setName('server_id')
@@ -74,7 +74,7 @@ module.exports = {
                 { name: '🔗 Link tham gia', value: inviteLink ? `[Click để tham gia](${inviteLink})` : 'Đang tạo link...', inline: false }
             )
             .setFooter({
-                text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
+                text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
                 iconURL: footer.icon_url || interaction.client.user.displayAvatarURL()
             });
 

@@ -9,13 +9,22 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Bot Discord này được thiết kế để quản lý và tương tác với cộng đồng trên máy chủ của bạn. Bot hỗ trợ cả lệnh prefix và lệnh slash, giúp việc sử dụng dễ dàng và linh hoạt hơn.",
   "dependencies": {
+    "@discordjs/builders": "^1.8.2",
     "@discordjs/voice": "^0.17.0",
+    "axios": "^1.7.2",
     "cls": "^0.1.5",
     "discord.js": "^14.15.3",
+    "libsodium-wrappers": "^0.7.13",
+    "node-fetch": "^3.3.2",
     "npm": "^10.8.1",
+    "soundcloud-downloader": "^1.0.0",
+    "spotify-uri": "^4.1.0",
     "start": "^5.1.0",
-    "systeminformation": "^5.22.11"
+    "systeminformation": "^5.22.11",
+    "youtube-search": "^1.1.6",
+    "yt-search": "^2.11.1",
+    "ytdl-core": "^4.11.5"
   }
 }

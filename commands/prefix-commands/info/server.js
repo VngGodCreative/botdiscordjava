@@ -7,7 +7,7 @@ module.exports = {
     name: 'serverinfo',
     description: '📜 Hiển thị thông tin về server hiện tại hoặc server theo ID',
     category: 'info',
-    usage: 'serverinfo [serverID]',
+    usage: '[serverID]',
 
     async execute(message, args) {
         let guild;
@@ -71,7 +71,7 @@ module.exports = {
                 { name: '🔗 Link tham gia', value: inviteLink ? `[Click để tham gia](${inviteLink})` : 'Đang tạo link...', inline: false }
             )
             .setFooter({
-                text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
+                text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
                 iconURL: footer.icon_url || message.client.user.displayAvatarURL()
             });
 

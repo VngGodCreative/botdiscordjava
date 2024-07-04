@@ -1,14 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const { EmbedBuilder } = require('discord.js');
-const { footer,ready } = require('../config');
+const { footer, ready, prefix } = require('../config');
 
 const afkFilePath = path.join(__dirname, '../data/afk.json');
 
 module.exports = {
     name: 'messageCreate',
-    execute(message) {
-        const { prefix } = require('../config');
+    async execute(message) {
         const client = message.client;
 
         // Đảm bảo tệp afk.json tồn tại và có nội dung hợp lệ
@@ -33,7 +32,7 @@ module.exports = {
                 .setColor(0x00FF00)
                 .setTitle('🟢 Trạng thái AFK đã được gỡ bỏ')
                 .setDescription(`Bạn đã quay trở lại và trạng thái AFK của bạn đã được gỡ bỏ.`)
-                .setFooter({ text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || message.client.user.displayAvatarURL() });
+                .setFooter({ text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || message.client.user.displayAvatarURL() });
             message.reply({ embeds: [embed] });
             return; // Tránh phản hồi trùng lặp
         }
@@ -52,7 +51,7 @@ module.exports = {
                             { name: '📅 Thời gian', value: `${new Date(afkData.time).toLocaleTimeString('vi-VN')} - ${new Date(afkData.time).toLocaleDateString('vi-VN')}`, inline: true },
                             { name: '📢 Lý do', value: afkData.reason, inline: false }
                         )
-                        .setFooter({ text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || message.client.user.displayAvatarURL() });
+                        .setFooter({ text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`, iconURL: footer.icon_url || message.client.user.displayAvatarURL() });
                     message.reply({ embeds: [embed] });
                 }
             });
@@ -70,10 +69,14 @@ module.exports = {
         const command = client.commands.get(commandName);
 
         try {
-            command.execute(message, args);
+            await command.execute(message, args);
         } catch (error) {
             console.error(error);
-            message.reply('Có lỗi xảy ra khi thực thi lệnh!');
+            const errorEmbed = new EmbedBuilder()
+                .setColor('#FF0000')
+                .setTitle('🚫 Lỗi')
+                .setDescription('Có lỗi xảy ra khi thực thi lệnh!');
+            await message.reply({ embeds: [errorEmbed] });
         }
     },
 };

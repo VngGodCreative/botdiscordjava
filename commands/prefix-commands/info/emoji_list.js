@@ -27,7 +27,7 @@ module.exports = {
                 .setTitle(`📋 Danh sách emoji Server ${guild.name}`)
                 .setDescription(description)
                 .setFooter({
-                    text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
+                    text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
                     iconURL: footer.icon_url || message.client.user.displayAvatarURL()
                 });
         };

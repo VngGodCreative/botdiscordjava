@@ -4,7 +4,7 @@ const { footer } = require('../../../config');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('userinfo')
+        .setName('user_info')
         .setDescription('📋 Hiển thị thông tin về người dùng')
         .addUserOption(option => 
             option.setName('target')
@@ -33,7 +33,7 @@ module.exports = {
                 { name: '🏷️ Vai trò', value: roles, inline: false }
             )
             .setFooter({
-                text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
+                text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
                 iconURL: footer.icon_url || interaction.client.user.displayAvatarURL()
             });
 

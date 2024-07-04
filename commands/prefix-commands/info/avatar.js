@@ -4,7 +4,7 @@ const { footer } = require('../../../config');
 module.exports = {
     name: 'avatar',
     description: '📷 Hiển thị avatar của bạn hoặc người dùng khác',
-    usage: '$avatar [@user]',
+    usage: '[@user]',
     category: 'info',
 
     execute(message, args) {
@@ -20,7 +20,7 @@ module.exports = {
             .setDescription(`Tải ảnh đại diện: ${avatarLinks}${gifLink}`)
             .setImage(avatarURL)
             .setFooter({
-                text: `${footer.text} - ${footer.version}`,
+                text: `${footer.text} ${footer.version}`,
                 iconURL: footer.icon_url || message.client.user.displayAvatarURL()
             });
 

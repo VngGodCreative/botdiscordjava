@@ -1,5 +1,5 @@
 const os = require('os');
-const { ready, botToken, ownerId, errorChannelId, warningsconfig } = require('../config');
+const { ready, token, ownerId, errorChannelId, warningsconfig } = require('../config');
 
 module.exports = {
     name: 'ready',
@@ -21,7 +21,7 @@ module.exports = {
         const cpuDisplay = `${cpuPercent}%/100% (${cpuCores} cores)`;
         const memoryDisplay = `${memoryPercent}%/100% (${totalMemoryGB} GB)`;
         
-        console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.start} ${ready.colors.start}Khởi động thành công, Tag: ${client.user.tag} | ID: ${client.user.id}\x1b[0m`);
+        console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.start} ${ready.colors.start}BOT: ${client.user.tag} | ID: ${client.user.id}\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.commands} ${ready.colors.commands}Tổng số câu lệnh Slash: ${totalSlashCommands}\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.prefixCommands} ${ready.colors.prefixCommands}Tổng số câu lệnh Prefix: ${totalPrefixCommands}\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.events} ${ready.colors.events}Tổng số sự kiện: ${totalEvents}\x1b[0m`);
@@ -38,7 +38,7 @@ function checkConfig() {
 
     const missingFields = [];
 
-    if (!botToken) missingFields.push('botToken');
+    if (!token.bot) missingFields.push('token.bot');
     if (!ownerId) missingFields.push('ownerId');
     if (!errorChannelId) missingFields.push('errorChannelId');
 

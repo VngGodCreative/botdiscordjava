@@ -1,3 +1,4 @@
+const { EmbedBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { ownerId } = require('../../../config');
@@ -9,10 +10,18 @@ module.exports = {
 
     async execute(message) {
         if (message.author.id !== ownerId) {
-            return message.reply('❌ Bạn không có quyền sử dụng lệnh này.');
+            const noPermEmbed = new EmbedBuilder()
+                .setColor('#FF0000')
+                .setTitle('❌ Truy cập bị từ chối')
+                .setDescription('Bạn không có quyền sử dụng lệnh này.');
+
+            return message.reply({ embeds: [noPermEmbed] });
         }
 
-        await message.reply('🔄 Đang tải lại các lệnh và sự kiện...');
+        const reloadEmbed = new EmbedBuilder()
+            .setColor('#FFFF00')
+            .setTitle('🔄 Đang cập nhật, đồng bộ các sự kiện, prefix và slash')
+        await message.reply({ embeds: [reloadEmbed] });
 
         const { client } = message;
 
@@ -30,7 +39,10 @@ module.exports = {
         // Tải lại sự kiện
         loadEvents(client);
 
-        message.channel.send('✅ Đã tải lại các lệnh và sự kiện thành công!');
+        const successEmbed = new EmbedBuilder()
+            .setColor('#00FF00')
+            .setTitle('✅ Đã cập nhật thành công')
+        message.channel.send({ embeds: [successEmbed] });
     },
 };
 

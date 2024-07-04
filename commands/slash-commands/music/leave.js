@@ -12,7 +12,7 @@ module.exports = {
         const connection = getVoiceConnection(interaction.guild.id);
 
         if (!connection) {
-            return interaction.reply({ content: '⚠️ Bot không ở trong kênh voice nào.', ephemeral: true });
+            return interaction.reply({ content: '⚠️ Bot không ở trong kênh voice nào.', ephemeral: false });
         }
 
         connection.destroy();

@@ -5,7 +5,7 @@ module.exports = {
     name: 'userinfo',
     description: '📋 Hiển thị thông tin về người dùng',
     category: 'info',
-    usage: 'userinfo [@mention|userID]',
+    usage: '[@mention|userID]',
 
     async execute(message, args) {
         let user;
@@ -37,7 +37,7 @@ module.exports = {
                 { name: '🏷️ Vai trò', value: roles, inline: false }
             )
             .setFooter({
-                text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
+                text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
                 iconURL: footer.icon_url || message.client.user.displayAvatarURL()
             });
 

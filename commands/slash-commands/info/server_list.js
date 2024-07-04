@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('serverlist')
+        .setName('server_list')
         .setDescription('📜 Hiển thị danh sách các máy chủ mà bot đang tham gia'),
     category: 'info',
 
@@ -72,7 +72,7 @@ module.exports = {
                 .setTitle('📜 Danh sách các máy chủ BOT đã tham gia')
                 .setDescription(description)
                 .setFooter({
-                    text: `${footer.text} - ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
+                    text: `${footer.text} ${footer.version} | ${new Date().toLocaleTimeString('vi-VN')} - ${new Date().toLocaleDateString('vi-VN')}`,
                     iconURL: footer.icon_url || client.user.displayAvatarURL()
                 });
         };
