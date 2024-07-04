@@ -98,51 +98,104 @@ Hiển thị danh sách các lệnh và chi tiết về từng lệnh.
 ## Cấu trúc Thư mục
 ```plaintext
 .
-├── commands
-│   ├── prefix-commands
-│   │   ├── admin
+CREATIVE BOT JAVA/
+│
+├── commands/
+│   ├── prefix-commands/
+│   │   ├── admin/
 │   │   │   ├── ban.js
 │   │   │   ├── kick.js
 │   │   │   ├── mute.js
-│   │   ├── music
+│   │   │   └── unban.js
+│   │   │
+│   │   ├── general/
+│   │   │   ├── about.js
+│   │   │   ├── afk.js
+│   │   │   ├── help.js
+│   │   │   ├── ping.js
+│   │   │   └── report_error.js
+│   │   │
+│   │   ├── info/
+│   │   │   ├── avatar.js
+│   │   │   ├── emoji_list.js
+│   │   │   ├── server_list.js
+│   │   │   ├── server.js
+│   │   │   └── user.js
+│   │   │
+│   │   ├── music/
 │   │   │   ├── join.js
-│   │   │   ├── leave.js
-│   │   ├── owner
-│   │   │   ├── update.js
-│   │   ├── about.js
-│   │   ├── afk.js
-│   │   ├── help.js
-│   │   ├── ping.js
-│   │   └── report_error.js
-│   └── slash-commands
-│       ├── admin
+│   │   │   └── leave.js
+│   │   │
+│   │   ├── owner/
+│   │   │   ├── setavatar.js
+│   │   │   └── update.js
+│   │   │
+│   │   └── setup/
+│   │       ├── stealemoji.js
+│   │       ├── setupemoji.js
+│   │       └── setupticket.js
+│   │
+│   └── slash-commands/
+│       ├── admin/
 │       │   ├── ban.js
 │       │   ├── kick.js
 │       │   ├── mute.js
-│       ├── music
+│       │   ├── say.js
+│       │   ├── steal.js
+│       │   └── unban.js
+│       │
+│       ├── general/
+│       │   ├── about.js
+│       │   ├── afk.js
+│       │   ├── help.js
+│       │   ├── ping.js
+│       │   └── report_error.js
+│       │
+│       ├── info/
+│       │   ├── avatar.js
+│       │   ├── emoji_list.js
+│       │   ├── server_list.js
+│       │   ├── server.js
+│       │   └── user.js
+│       │
+│       ├── music/
+│       │   ├── 24-7.js
+│       │   ├── add.js
 │       │   ├── join.js
 │       │   ├── leave.js
-│       ├── owner
-│       │   ├── update.js
-│       ├── about.js
-│       ├── afk.js
-│       ├── help.js
-│       ├── ping.js
-│       └── report_error.js
-├── data
+│       │   ├── pause.js
+│       │   ├── play.js
+│       │   ├── queue.js
+│       │   ├── resume.js
+│       │   ├── search.js
+│       │   └── stop.js
+│       │
+│       ├── owner/
+│       │   ├── setavatar.js
+│       │   └── update.js
+│       │
+│       └── setup/
+│           ├── setupemoji.js
+│           └── setupticket.js
+│
+├── data/
 │   ├── afk.json
 │   └── invite_link.json
-├── events
+│
+├── events/
 │   ├── interactionCreate.js
 │   ├── messageCreate.js
-│   └── ready.js
-├── node_modules
+│   ├── ready.js
+│   └── ticketCreate.js
+│
+├── node_modules/
+│
 ├── config.js
 ├── index.js
 ├── package-lock.json
 ├── package.json
 ├── readme.md
-└── start.bat
+└── Start.bat
 ```
 
 ## Liên hệ
