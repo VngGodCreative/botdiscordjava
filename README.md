@@ -201,7 +201,3 @@ CREATIVE BOT JAVA/
 ├── readme.md
 └── Start.bat
 ```
-
-## Giấy phép
-
-Creative BOT Java được cấp phép theo MIT License.
