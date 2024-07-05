@@ -1,0 +1,28 @@
+bắt buộc mở cmd ở trong thư mục dự án và chạy lệnh cài thư viện
+
+cài đặt thư viện
+npm install -g pm2
+
+dùng lệnh này khởi tạo dự án mới ở trong cmd
+pm2 start index.js --name "creative-bot-java"
+
+lưu cấu hình bot
+pm2 save
+
+khởi động bot
+pm2 startup
+
+xem danh sách
+pm2 list
+
+xem các câu thông báo từ bot trả về cmd
+pm2 logs creative-bot-java
+
+dừng dự án
+pm2 stop creative-bot-java
+
+khởi động lại dự án
+pm2 restart creative-bot-java
+
+xóa dự án
+pm2 delete creative-bot-java
