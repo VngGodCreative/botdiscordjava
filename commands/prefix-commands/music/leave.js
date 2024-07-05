@@ -20,7 +20,7 @@ module.exports = {
             .setTitle('🔇 Đã rời khỏi kênh voice')
             .setDescription(`Đã rời khỏi kênh voice thành công.`)
             .setFooter({
-                text: `${footer.text} | ${footer.version}`,
+                text: `${footer.text} ${footer.version}`,
                 iconURL: message.client.user.displayAvatarURL(),
             });
 

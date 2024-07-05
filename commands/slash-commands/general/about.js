@@ -74,7 +74,7 @@ module.exports = {
                 { name: '🔧 Mainboard', value: `${mainboardModel}`, inline: false }
             )
             .setFooter({
-                text: `${footer.text} | ${footer.version}`,
+                text: `${footer.text} ${footer.version}`,
                 iconURL: interaction.client.user.displayAvatarURL()
             });
 

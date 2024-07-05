@@ -31,8 +31,8 @@ module.exports = {
             .setTitle('🔊 Đã tham gia kênh voice')
             .setDescription(`Đã tham gia kênh: **${voiceChannel.name}**`)
             .setFooter({
-                text: `${footer.text} | ${footer.version}`,
-                iconURL: interaction.client.user.displayAvatarURL(),
+                text: `${footer.text} ${footer.version}`,
+                iconURL: footer.icon_url || interaction.client.user.displayAvatarURL(),
             });
 
         await interaction.reply({ embeds: [embed], ephemeral: false });

@@ -31,7 +31,7 @@ module.exports = {
                     { name: 'Danh mục', value: command.category || 'Không có danh mục', inline: true },
                     { name: 'Cách sử dụng', value: command.usage || 'Không có cách sử dụng', inline: true }
                 )
-                .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: interaction.client.user.displayAvatarURL() });
+                .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
 
             return interaction.reply({ embeds: [commandDetailEmbed], ephemeral: true });
         }
@@ -73,7 +73,7 @@ module.exports = {
                 { name: categories.admin, value: adminCommands, inline: false },
                 { name: categories.owner, value: ownerCommands, inline: false }
             )
-            .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: interaction.client.user.displayAvatarURL() });
+            .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
 
         const row = new ActionRowBuilder()
             .addComponents(
@@ -107,7 +107,7 @@ module.exports = {
                 .setColor(0x0099ff)
                 .setTitle(`📜 Các lệnh trong danh mục: ${categories[category]}`)
                 .setDescription(selectedCommands.map(cmd => `\`${cmd.label}\`: ${cmd.description}`).join('\n'))
-                .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: interaction.client.user.displayAvatarURL() });
+                .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
 
             await i.update({ embeds: [commandEmbed], components: [], ephemeral: true });
         });

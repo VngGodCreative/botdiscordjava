@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, VoiceConnectionStatus, entersState } = require('@discordjs/voice');
 const ytdl = require('ytdl-core');
+const ytdlDiscord = require('ytdl-core-discord');
 const scdl = require('soundcloud-downloader').default;
 const spotifyURI = require('spotify-uri');
 const { EmbedBuilder } = require('discord.js');
@@ -51,7 +52,7 @@ async function searchYouTube(query) {
     return searchResults.videos.length > 0 ? searchResults.videos[0] : null;
 }
 
-const play = async (guild, song, interaction = null) => {
+const play = async (guild, song, interaction = null, retryCount = 0) => {
     const serverQueue = queue.get(guild.id);
     if (!song) {
         // Do not destroy the connection, just return
@@ -61,7 +62,7 @@ const play = async (guild, song, interaction = null) => {
     let resource;
     try {
         if (ytdl.validateURL(song.url)) {
-            const stream = ytdl(song.url, { filter: 'audioonly' });
+            const stream = await ytdlDiscord(song.url, { filter: 'audioonly', highWaterMark: 1 << 25 });
             resource = createAudioResource(stream);
         } else if (scdl.isValidUrl(song.url) && song.url.includes('soundcloud.com')) {
             const stream = await scdl.downloadFormat(song.url, scdl.FORMATS.OPUS);
@@ -76,7 +77,7 @@ const play = async (guild, song, interaction = null) => {
                 if (!youtubeResult) {
                     throw new Error('Preview URL not available for this Spotify track and no alternative found on YouTube');
                 }
-                const stream = ytdl(youtubeResult.url, { filter: 'audioonly' });
+                const stream = await ytdlDiscord(youtubeResult.url, { filter: 'audioonly', highWaterMark: 1 << 25 });
                 resource = createAudioResource(stream);
                 song.url = youtubeResult.url; // Update song URL to YouTube
                 song.title = youtubeResult.title; // Update song title to YouTube result
@@ -99,16 +100,22 @@ const play = async (guild, song, interaction = null) => {
 
         serverQueue.player.on('error', error => {
             console.error(`Error in player: ${error.message}`);
-            serverQueue.songs.shift();
-            play(guild, serverQueue.songs[0], interaction);
+            if (retryCount < 3) {
+                console.log(`Retrying... (${retryCount + 1}/3)`);
+                play(guild, song, interaction, retryCount + 1);
+            } else {
+                console.log('Max retries reached, moving to the next song.');
+                serverQueue.songs.shift();
+                play(guild, serverQueue.songs[0], interaction);
+            }
         });
 
         if (interaction) {
             const embed = new EmbedBuilder()
                 .setColor('#0099ff')
-                .setTitle(`🎵 Đang phát: [${song.title}](${song.url})`)
-                .setDescription(`**Nghệ sĩ:** 👤 ${song.artist}\n**Độ dài:** ⏰ ${song.duration}`)
-                .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url });
+                .setTitle(`🎵 Đang phát bài hát của bạn`)
+                .setDescription(`**Tên bài hát:** [${song.title}](${song.url})\n**Nghệ sĩ:** 👤 ${song.artist}\n**Độ dài:** ⏰ ${song.duration}`)
+                .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
 
             if (song.thumbnail) {
                 embed.setImage(song.thumbnail);
@@ -124,12 +131,18 @@ const play = async (guild, song, interaction = null) => {
                     .setColor('#ff0000')
                     .setTitle('❌ Lỗi')
                     .setDescription(`Không thể phát bài hát: [${song.title}](${song.url}). ${error.message}`)
-                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url })]
+                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() })]
             });
         }
         if (serverQueue) {
-            serverQueue.songs.shift();
-            play(guild, serverQueue.songs[0], interaction);
+            if (retryCount < 3) {
+                console.log(`Retrying... (${retryCount + 1}/3)`);
+                play(guild, song, interaction, retryCount + 1);
+            } else {
+                console.log('Max retries reached, moving to the next song.');
+                serverQueue.songs.shift();
+                play(guild, serverQueue.songs[0], interaction);
+            }
         }
     }
 };
@@ -154,7 +167,7 @@ module.exports = {
                     .setColor('#ff0000')
                     .setTitle('❌ Lỗi')
                     .setDescription('Bạn cần ở trong một kênh thoại để sử dụng lệnh này.')
-                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url })],
+                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() })],
                 ephemeral: true
             });
         }
@@ -200,7 +213,7 @@ module.exports = {
                             .setColor('#ff0000')
                             .setTitle('❌ Lỗi')
                             .setDescription('Không thể phát bài hát từ Spotify.')
-                            .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url })]
+                            .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() })]
                     });
                 }
             } else {
@@ -209,7 +222,7 @@ module.exports = {
                         .setColor('#ff0000')
                         .setTitle('❌ Lỗi')
                         .setDescription('URL không hợp lệ. Vui lòng cung cấp URL YouTube, SoundCloud, Spotify hoặc Discord hợp lệ.')
-                        .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url })]
+                        .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() })]
                 });
             }
 
@@ -266,16 +279,16 @@ module.exports = {
                             .setColor('#ff0000')
                             .setTitle('❌ Lỗi')
                             .setDescription('Không thể kết nối vào kênh thoại.')
-                            .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url })]
+                            .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() })]
                     });
                 }
             } else {
                 serverQueue.songs.push(song);
                 const embed = new EmbedBuilder()
                     .setColor('#0099ff')
-                    .setTitle(`🎵 Đã thêm vào hàng đợi: [${title}](${url})`)
-                    .setDescription(`**Nghệ sĩ:** 👤 ${artist}\n**Độ dài:** ⏰ ${duration}`)
-                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url });
+                    .setTitle(`🎵 Đã thêm vào hàng đợi`)
+                    .setDescription(`**Tên bài hát:** [${title}](${url})\n**Nghệ sĩ:** 👤 ${artist}\n**Độ dài:** ⏰ ${duration}`)
+                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() });
 
                 if (thumbnail) {
                     embed.setImage(thumbnail);
@@ -290,7 +303,7 @@ module.exports = {
                     .setColor('#ff0000')
                     .setTitle('❌ Lỗi')
                     .setDescription('Đã xảy ra lỗi khi cố gắng phát âm thanh. Vui lòng thử lại sau.')
-                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url })]
+                    .setFooter({ text: `${footer.text} ${footer.version}`, iconURL: footer.icon_url || interaction.client.user.displayAvatarURL() })]
             });
         }
     },

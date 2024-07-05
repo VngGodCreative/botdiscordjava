@@ -40,7 +40,7 @@ module.exports = {
                         { name: '📄 Lý do', value: reason }
                     )
                     .setFooter({
-                        text: `${footer.text} | ${footer.version}`,
+                        text: `${footer.text} ${footer.version}`,
                         iconURL: message.client.user.displayAvatarURL(),
                     });
 
