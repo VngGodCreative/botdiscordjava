@@ -20,7 +20,7 @@ module.exports = {
         const totalMemoryGB = (totalMemory / (1024 ** 3)).toFixed(2);
         const cpuDisplay = `${cpuPercent}%/100% (${cpuCores} cores)`;
         const memoryDisplay = `${memoryPercent}%/100% (${totalMemoryGB} GB)`;
-        
+
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.start} ${ready.colors.start}BOT: ${client.user.tag} | ID: ${client.user.id}\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.commands} ${ready.colors.commands}Tổng số câu lệnh Slash: ${totalSlashCommands}\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.prefixCommands} ${ready.colors.prefixCommands}Tổng số câu lệnh Prefix: ${totalPrefixCommands}\x1b[0m`);
@@ -28,8 +28,12 @@ module.exports = {
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.os} ${ready.colors.os}Hệ điều hành: ${osType} (${osArch})\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.cpu} ${ready.colors.cpu}Sử dụng CPU (bot): ${cpuDisplay}\x1b[0m`);
         console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.emojis.ram} ${ready.colors.ram}Sử dụng RAM (bot): ${memoryDisplay}\x1b[0m`);
-        
+
         checkConfig(); // Call the function here
+
+        // Bắt đầu tìm chủ bot
+        const findOwnerEvent = require('./find_owner');
+        findOwnerEvent.execute(client);
     },
 };
 
