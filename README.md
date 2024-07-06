@@ -2,10 +2,6 @@
 
 Creative BOT Java là một bot Discord được xây dựng bằng Node.js, hỗ trợ phát nhạc từ nhiều nguồn như YouTube, SoundCloud, Spotify và Discord URL. Bot cũng cung cấp các tính năng hữu ích khác như gửi tin nhắn, quản lý server và nhiều hơn nữa, ngoài ra bot hỗ trợ chạy song song cả prefix và slash command nhằm tiện hơn.
 
-## Liên hệ
-
-Nếu bạn có bất kỳ câu hỏi hoặc góp ý hay báo cáo sửa lỗi, vui lòng liên hệ qua email: `vnggodcreative@gmail.com` hoặc [Tham gia nhóm](https://discord.gg/4Sbc2hVvNT) discord
-
 ## Cài đặt
 
 1. **Clone repo từ GitHub:**
@@ -201,3 +197,13 @@ CREATIVE BOT JAVA/
 ├── readme.md
 └── Start.bat
 ```
+
+## Liên hệ
+
+Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào, vui lòng liên hệ qua email: `vnggodcreative@gmail.com`
+
+Hoặc [Tham gia nhóm](https://discord.gg/4Sbc2hVvNT)
+
+## Giấy phép
+
+Creative BOT Java được cấp phép theo MIT License.

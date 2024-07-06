@@ -100,8 +100,6 @@ client.once('ready', async () => {
                 type: ActivityType[activity.type]
             }))
         });
-
-        console.log(`${ready.colors.info}${ready.infoPrefix}\x1b[0m ${ready.colors.ready}${ready.emojis.ready} Bot đã sẵn sàng vào hoạt động !!!\x1b[0m`);
     } catch (error) {
         console.error(error);
     }
